@@ -6,10 +6,12 @@ SELECT *
 FROM dept_emp;
 
 --#1
+
 SELECT e.emp_no, last_name, sex, salary
 FROM   employees e
 	   JOIN salaries s ON e.emp_no = s.emp_no;
---#2	   
+--#2
+
 SELECT  first_name, last_name, hire_date
 FROM	employees
 WHERE EXTRACT(YEAR FROM hire_date) = '1986';
@@ -45,4 +47,11 @@ SELECT e.emp_no, last_name, first_name, dept_name
 FROM   employees e
 	   JOIN dept_emp_cte dect on e.emp_no = dect.emp_no;
 
+--#5
 
+SELECT first_name, last_name, sex
+FROM   employees
+WHERE  first_name = 'Hercules' 
+	   AND last_name LIKE 'B%';
+
+--#6
