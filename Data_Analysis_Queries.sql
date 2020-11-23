@@ -86,3 +86,9 @@ SELECT e.emp_no, last_name, first_name, dept_name
 FROM employees e
 	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no
 
+--#8
+
+SELECT last_name, COUNT(last_name) AS "occurances_of_last_name"
+FROM employees
+GROUP BY last_name
+ORDER BY occurances_of_last_name DESC;
