@@ -1,3 +1,4 @@
+--My Employee ID
 SELECT *
 FROM employees
 WHERE emp_no = 499942;
@@ -65,7 +66,7 @@ WITH sales_cte AS (
 )
 SELECT e.emp_no, last_name, first_name, dept_name
 FROM employees e
-	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no
+	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no;
 
 --#7
 
@@ -81,7 +82,7 @@ WITH sales_dev_cte AS (
 )
 SELECT e.emp_no, last_name, first_name, dept_name
 FROM employees e
-	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no
+	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no;
 
 --#8
 
