@@ -3,7 +3,7 @@ FROM employees
 LIMIT 10;
 
 SELECT *
-FROM dept_emp;
+FROM departments;
 
 --#1
 
@@ -55,3 +55,19 @@ WHERE  first_name = 'Hercules'
 	   AND last_name LIKE 'B%';
 
 --#6
+
+WITH sales_cte AS (
+	SELECT *
+	FROM   departments
+	WHERE  dept_no = 'd007'
+)
+, dept_emp_cte AS (
+	SELECT emp_no, de.dept_no, dept_name
+	FROM dept_emp de
+		JOIN sales_cte sc ON de.dept_no = sc.dept_no
+)
+SELECT e.emp_no, last_name, first_name, dept_name
+FROM employees e
+	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no
+
+--#7
