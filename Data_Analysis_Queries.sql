@@ -1,9 +1,6 @@
 SELECT *
 FROM employees
-LIMIT 10;
-
-SELECT *
-FROM departments;
+WHERE emp_no = 499942;
 
 --#1
 
