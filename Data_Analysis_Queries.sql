@@ -71,3 +71,18 @@ FROM employees e
 	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no
 
 --#7
+
+WITH sales_dev_cte AS (
+	SELECT *
+	FROM   departments
+	WHERE  dept_no = 'd007' OR dept_no = 'd005'
+)
+, dept_emp_cte AS (
+	SELECT emp_no, de.dept_no, dept_name
+	FROM dept_emp de
+		JOIN sales_dev_cte sd ON de.dept_no = sd.dept_no
+)
+SELECT e.emp_no, last_name, first_name, dept_name
+FROM employees e
+	JOIN dept_emp_cte dem ON e.emp_no = dem.emp_no
+
